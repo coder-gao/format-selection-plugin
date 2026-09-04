@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.22"
-    id("org.jetbrains.intellij") version "1.15.0"
+    id("org.jetbrains.kotlin.jvm") version "1.9.23"
+    id("org.jetbrains.intellij") version "1.17.3"
 }
 
 group = "com.github.codergao"
@@ -12,24 +12,22 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.8.9")
-    implementation("org.json:json:20230227")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("org.json:json:20231013")
 }
 
 intellij {
-    version.set("2023.1")
+    version.set("2025.1")
     plugins.set(listOf())
 }
 
 tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
-            jvmTarget = "11"
-            apiVersion = "1.8"
-            languageVersion = "1.8"
+            jvmTarget = "17"
         }
     }
-    
+
     patchPluginXml {
         changeNotes.set("Initial release")
     }
