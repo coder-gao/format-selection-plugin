@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.github.codergao.format.selection</id>
+    <name>Format Selection Viewer</name>
+    <vendor email="support@example.com" url="https://github.com/coder-gao/format-selection-plugin">
+        Format Selection Plugin
+    </vendor>
+
+    <description><![CDATA[
+      Select any text and view its formatted version in a popup window.
+      Auto-detects and formats JSON, XML, HTML, SQL, JavaScript, CSS, YAML, and more.
+      - Non-destructive: original file is never modified
+      - Independent popup window with pin/close options
+      - Multiple format selection dropdown
+      - New window for each selection
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="FormatSelectionAction"
+                class="com.github.codergao.action.FormatSelectionAction"
+                text="Format Selection Viewer"
+                description="View formatted version of selected text">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift f"/>
+            <add-to-group group-id="EditMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
