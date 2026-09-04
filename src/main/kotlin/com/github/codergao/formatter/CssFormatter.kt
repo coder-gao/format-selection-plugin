@@ -29,8 +29,7 @@ class CssFormatter : Formatter {
                         while (sb.isNotEmpty() && sb.last().isWhitespace()) {
                             sb.deleteCharAt(sb.length - 1)
                         }
-                        sb.append("\n}
-\n")
+                        sb.append("\n}\n\n")
                         i++
                         // Skip whitespace
                         while (i < text.length && text[i].isWhitespace()) {
