@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+*.jar
+*.exe
+*.zip
+*.tar.gz
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Kotlin
+.kotlin/
+out/
+
+# Build
+gradle/wrapper/gradle-wrapper.jar
