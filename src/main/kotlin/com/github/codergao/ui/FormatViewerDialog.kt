@@ -9,6 +9,7 @@ import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.openapi.fileTypes.FileTypes
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
+import javax.swing.Action
 import java.awt.BorderLayout
 import javax.swing.JComboBox
 import javax.swing.JComponent
@@ -106,7 +107,7 @@ class FormatViewerDialog(
         currentEditor = editor
     }
     
-    override fun createActions() = arrayOf()
+    override fun createActions(): Array<Action> = arrayOf()
     
     override fun getPreferredFocusedComponent(): JComponent? = formatComboBox
     
