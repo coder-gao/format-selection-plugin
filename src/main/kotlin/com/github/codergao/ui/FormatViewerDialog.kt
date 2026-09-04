@@ -6,6 +6,7 @@ import com.github.codergao.model.TextFormat
 import com.intellij.openapi.editor.EditorFactory
 import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.fileTypes.FileTypeManager
+import com.intellij.openapi.fileTypes.FileTypes
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
 import java.awt.BorderLayout
@@ -79,19 +80,19 @@ class FormatViewerDialog(
         // Create editor
         val document = EditorFactory.getInstance().createDocument(formattedText)
         val fileType = when (detectedFormat) {
-            TextFormat.JSON -> FileTypeManager.getInstance().getFileTypeByExtension("json")
-            TextFormat.XML -> FileTypeManager.getInstance().getFileTypeByExtension("xml")
-            TextFormat.HTML -> FileTypeManager.getInstance().getFileTypeByExtension("html")
-            TextFormat.SQL -> FileTypeManager.getInstance().getFileTypeByExtension("sql")
-            TextFormat.JAVASCRIPT -> FileTypeManager.getInstance().getFileTypeByExtension("js")
-            TextFormat.TYPESCRIPT -> FileTypeManager.getInstance().getFileTypeByExtension("ts")
-            TextFormat.CSS -> FileTypeManager.getInstance().getFileTypeByExtension("css")
-            TextFormat.YAML -> FileTypeManager.getInstance().getFileTypeByExtension("yaml")
-            TextFormat.PYTHON -> FileTypeManager.getInstance().getFileTypeByExtension("py")
-            TextFormat.JAVA -> FileTypeManager.getInstance().getFileTypeByExtension("java")
-            TextFormat.KOTLIN -> FileTypeManager.getInstance().getFileTypeByExtension("kt")
-            TextFormat.PROPERTIES -> FileTypeManager.getInstance().getFileTypeByExtension("properties")
-            else -> null
+            TextFormat.JSON -> FileTypeManager.getInstance().getFileTypeByExtension("json") ?: FileTypes.PLAIN_TEXT
+            TextFormat.XML -> FileTypeManager.getInstance().getFileTypeByExtension("xml") ?: FileTypes.PLAIN_TEXT
+            TextFormat.HTML -> FileTypeManager.getInstance().getFileTypeByExtension("html") ?: FileTypes.PLAIN_TEXT
+            TextFormat.SQL -> FileTypeManager.getInstance().getFileTypeByExtension("sql") ?: FileTypes.PLAIN_TEXT
+            TextFormat.JAVASCRIPT -> FileTypeManager.getInstance().getFileTypeByExtension("js") ?: FileTypes.PLAIN_TEXT
+            TextFormat.TYPESCRIPT -> FileTypeManager.getInstance().getFileTypeByExtension("ts") ?: FileTypes.PLAIN_TEXT
+            TextFormat.CSS -> FileTypeManager.getInstance().getFileTypeByExtension("css") ?: FileTypes.PLAIN_TEXT
+            TextFormat.YAML -> FileTypeManager.getInstance().getFileTypeByExtension("yaml") ?: FileTypes.PLAIN_TEXT
+            TextFormat.PYTHON -> FileTypeManager.getInstance().getFileTypeByExtension("py") ?: FileTypes.PLAIN_TEXT
+            TextFormat.JAVA -> FileTypeManager.getInstance().getFileTypeByExtension("java") ?: FileTypes.PLAIN_TEXT
+            TextFormat.KOTLIN -> FileTypeManager.getInstance().getFileTypeByExtension("kt") ?: FileTypes.PLAIN_TEXT
+            TextFormat.PROPERTIES -> FileTypeManager.getInstance().getFileTypeByExtension("properties") ?: FileTypes.PLAIN_TEXT
+            else -> FileTypes.PLAIN_TEXT
         }
         
         val editor = EditorFactory.getInstance().createEditor(document, project, fileType, true) as EditorEx
